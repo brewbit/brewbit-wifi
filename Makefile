@@ -137,6 +137,9 @@ $(APP_AR): $(OBJ)
 flash: sdk flash_images
 	-$(ESPTOOL) --port $(ESPPORT) write_flash 0x00000 $(FLASH_IMAGE_1) 0x40000 $(FLASH_IMAGE_2)
 
+run:
+	-$(ESPTOOL) --port $(ESPPORT) run
+
 clean:
 	diskutil umount force build/eos
 	$(Q) rm -f $(APP_AR)
